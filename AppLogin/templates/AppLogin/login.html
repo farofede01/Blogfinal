@@ -1,0 +1,15 @@
+{% extends 'Final/padre.html' %}
+
+{% load static %}
+
+{% block titulo %} INICIO DE SESION {% endblock %}
+
+{% block contenido_que_cambia %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+            {{ form.as_p }}
+        <button type="submit">Inciar sesion</button>
+    </form>
+
+{% endblock %}
