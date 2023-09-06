@@ -1,0 +1,37 @@
+{% extends 'Final/padre.html' %}
+
+{% load static %}
+
+{% block titulo %} Acerca de mi{% endblock %}
+
+{% block contenido_que_cambia %}
+    <h1>Este es el contenido de mi perfil</h1>
+    <h2 class = "text-center">
+        Acerca de mi!
+    </h2>
+    <br>
+       <div class="row g-4">
+           <div class="col-md-6 col-lg-3">
+               <div class="card bg-success">
+                    <div class="card-body text-center">
+                        <img src="{% static  'media/fotoperfil.jpg' %}" class="rounded-circle mb-3" width="150px">
+                    <h3 class="card-title mb-3">Federico Farola</h3>
+                    <p class="card-text">Estudiante de programacion</p>
+                    <p class="card-text">Sigueme en:</p>
+                    <a href="">https://github.com/farofede01<i class="bi bi-github text-dark mx-1"></i></a>
+                    <a href="">https://www.linkedin.com/in/fede-farola-98aa1926b/<i class="bi bi-linkedin text-dark mx-1"></i></a>
+                    </div>
+               </div>
+            </div>
+            <div class="col">
+            <div class="">
+                 <div class="text-center">
+                    <p>Hola mi nombre es Federico Farola, soy estudiante de programacion, terminando de cursar el curso de programacion de Python de coderhouse, espero les guste mi blog, gracias por visitar mi pagina!</p>
+                 </div>
+            </div>
+        </div>
+       </div>
+    
+
+
+{% endblock %}

@@ -22,7 +22,7 @@ from AppPerfil.views import *
 from AppRegistro.views import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls), 
     path("", inicio, name="inicio"),
     path("AppLogin/", include("AppLogin.urls")),
     path("AppMensajeria/", include("AppMensajeria.urls")),
