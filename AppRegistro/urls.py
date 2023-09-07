@@ -3,5 +3,5 @@ from .views import *
 from AppRegistro import views
 
 urlpatterns = [
-    path("formulario", formulario)
+    path("formulario", usuarioForm)
 ]  

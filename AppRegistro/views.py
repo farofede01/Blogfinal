@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from .forms import *
 
 # Create your views here.
-def formulario(request):
+def usuarioForm(request):
     if request.method == 'POST':
         form = usuarioForm(request.POST)
         if form.is_valid():
