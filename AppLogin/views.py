@@ -17,16 +17,16 @@ def login_request(request):
             if user is not None:
                 login (request, user)
 
-                return render (request, "AppLogin/inicio.html", {"mensaje": f"Bienvenido {usuario}"})
+                return render (request, "AppLogin/login.html", {"mensaje": f"Bienvenido {usuario}"})
             else:
-                return render (request, "AppLogin/inicio.html", {"mensaje":"Error, datos incorrectos"})
+                return render (request, "AppLogin/login.html", {"mensaje":"Error, datos incorrectos"})
             
         else :
-            return render (request, "AppLogin/inicio.html", {"mensaje": "Error, formulario erroneo"})
+            return render (request, "AppLogin/login.html", {"mensaje": "Error, formulario erroneo"})
     
     form = AuthenticationForm()
 
-    return render (request, "Final/inicio.html", {"form" : form})
+    return render (request, "login.html", {"form" : form})
 
 @login_required
 def inicio (request):

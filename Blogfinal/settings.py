@@ -60,7 +60,7 @@ ROOT_URLCONF = 'Blogfinal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [r"C:/Users/MI PC\Desktop/Miblog/Blogfinal/Blogfinal/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,7 +128,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = "AppLogin/login"
+LOGIN_URL = "AppLogin/login.html"
 
 #Para imagenes:
 

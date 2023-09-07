@@ -23,7 +23,7 @@ def editarPerfil(request):
 
             usuario.save()
 
-            return render(request, "AppCoder/inicio.html")
+            return render(request, "inicio.html")
 
     else:
 
@@ -31,8 +31,15 @@ def editarPerfil(request):
 
     return render(request, "AppCoder/editarPerfil.html", {"miFormulario": miFormulario, "usuario": usuario})
 
-@login_required
-def inicio (request):
-    avatares = Avatar.objects.filter(user = request.user.id)
-    return render (request, "Final/inicio.html", {"url": avatares[0].imagen.url})
-
+#@login_required
+#def inicio (request):
+#    avatares = Avatar.objects.filter(user = request.user.id)
+#    return render (request, "inicio.html", {"url": avatares[0].imagen.url})
+#def inicio(request):
+#    avatares = Avatar.objects.filter(user=request.user.id)
+#    if avatares.exists():
+#        avatar_url = avatares[0].imagen.url
+#    else:
+#        avatar_url = None
+#
+#    return render(request, "inicio.html", {"url": avatar_url})
