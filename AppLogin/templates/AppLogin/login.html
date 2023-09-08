@@ -1,4 +1,4 @@
-{% extends 'Blogfinal/padre.html' %}
+{% extends 'padre.html' %}
 
 {% load static %}
 
@@ -9,7 +9,7 @@
     <form action="" method="POST">
         {% csrf_token %}
             {{ form.as_p }}
-        <button type="submit">Inciar sesion</button>
+        <button type="submit">Iniciar sesion</button>
     </form>
 
 {% endblock %}

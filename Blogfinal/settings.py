@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'AppMensajeria',
     'AppRegistro',
     'AppPerfil',
-
+    'Appblog',
 ]
 
 MIDDLEWARE = [
@@ -57,10 +57,17 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'Blogfinal.urls'
 
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r"C:/Users/MI PC\Desktop/Miblog/Blogfinal/Blogfinal/templates"],
+        'DIRS': [os.path.join(BASE_DIR, 'Appblog','templates'),
+                 os.path.join(BASE_DIR, 'AppLogin','templates'),
+                 os.path.join(BASE_DIR, 'AppMensajeria','templates'),
+                 os.path.join(BASE_DIR, 'AppPerfil','templates'),
+                 os.path.join(BASE_DIR, 'AppRegistro','templates'),
+                ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,8 +135,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = "AppLogin/login.html"
-
+LOGIN_URL = '/accounts/login/'
 #Para imagenes:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

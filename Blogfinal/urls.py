@@ -15,10 +15,6 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path, include
-from AppLogin.views import *
-from AppMensajeria.views import *
-from AppPerfil.views import *
-from AppRegistro.views import *
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
@@ -26,11 +22,11 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", inicio, name="inicio"),
-    path("AppLogin/", include("AppLogin.urls")),
-    path("AppMensajeria/", include("AppMensajeria.urls")),
-    path("AppPerfil/", include("AppPerfil.urls")),
-    path("AppRegistro/", include("AppRegistro.urls")),
+    path("", include("AppLogin.urls")),
+    path("", include("AppMensajeria.urls")),
+    path("", include("AppPerfil.urls")),
+    path("", include("AppRegistro.urls")),
+    path("",include ("Appblog.urls")),
 ]
 
 

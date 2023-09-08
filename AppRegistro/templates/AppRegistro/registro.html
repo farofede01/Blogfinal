@@ -1,4 +1,4 @@
-{% extends 'padre.html' %}
+{% extends 'Blogfinal/padre.html' %}
 
 {% load static %}
 
@@ -7,7 +7,7 @@
 {% block contenido_que_cambia %}
 <h1> USUARIOS</h1>
 <h2>FORMULARIO</h2>
-    <form action = "{% url "usuario" %}"  method = "POST">{% csrf_token %} 
+    <form action = "{% url "registro" %}"  method = "POST">{% csrf_token %} 
         {{ formulario.as_p}}
         <input type ="submit", value = "GUARDAR USUARIO">
     
