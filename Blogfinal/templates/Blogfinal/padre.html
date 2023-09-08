@@ -14,7 +14,7 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href={% static "AppCoder/css/styles.css" %} rel="stylesheet" />
+        <link href={% static "Blogfinal/css/styles.css" %} rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
@@ -25,10 +25,14 @@
                 <a class="btn btn-primary" href="{% url "Mensajeria" %}">Mensajeria</a>
                 <a class="btn btn-primary" href="{% url "Registro" %}">Registro</a>
                 {% if not request.user.is_autenthicated %}
-                <a class="btn btn-primary" href="{% url"Login" %}">Iniciar Sesion</a>
-                {% {% endif %} %}
+                <a class="btn btn-primary" href="{% url "login" %}">Iniciar Sesion</a>
+                {% endif  %}
                 {%if request.user.is_autenthicated %}
-                <img src = "{{(Avatar.objects.filter(user= request.user.id))[0].imagen.url)}}"/>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {% if user.profile.imagen_perfil %}
+                        <img src="{{ user.profile.imagen_perfil.url }}" alt="{{ user.username }}" width="30" height="30" style="border-radius: 50%;">
+                        {% endif %}
                 <p class = "text-muted small mb-4 mb-lg-0"> Hola, {{user.username}} !!!. </p>
                 {% endif %}
             </div>

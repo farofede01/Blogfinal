@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .forms import UserEditForm
+from .forms import UserEditForm, AvatarUpdateForm
 from .models import *
 @login_required
 def editarPerfil(request):
@@ -31,15 +31,13 @@ def editarPerfil(request):
 
     return render(request, "AppCoder/editarPerfil.html", {"miFormulario": miFormulario, "usuario": usuario})
 
-#@login_required
-#def inicio (request):
-#    avatares = Avatar.objects.filter(user = request.user.id)
-#    return render (request, "inicio.html", {"url": avatares[0].imagen.url})
-#def inicio(request):
-#    avatares = Avatar.objects.filter(user=request.user.id)
-#    if avatares.exists():
-#        avatar_url = avatares[0].imagen.url
-#    else:
-#        avatar_url = None
-#
-#    return render(request, "inicio.html", {"url": avatar_url})
+def cargar_avatar(request):
+    if request.method == 'POST':
+        profile_form = AvatarUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+
+        if profile_form.is_valid():
+            profile_form.save()
+            return redirect('inicio')
+    else:
+        profile_form = AvatarUpdateForm(instance=request.user.userprofile)
+    return render(request, 'Blog/inicio.html', {'profile_form': profile_form})

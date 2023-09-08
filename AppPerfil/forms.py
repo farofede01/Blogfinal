@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from .models import Avatar
 
 class UserEditForm(UserCreationForm):
     email = forms.EmailField(label="Ingrese su email:")
@@ -13,5 +14,9 @@ class UserEditForm(UserCreationForm):
         fields = ['email', 'password1', 'password2']
         help_texts = { k:"" for k in fields}
 
+class AvatarUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Avatar
+        fields = ['imagen_perfil']
         
 
