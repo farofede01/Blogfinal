@@ -14,9 +14,9 @@ class UserEditForm(UserCreationForm):
         fields = ['email', 'password1', 'password2']
         help_texts = { k:"" for k in fields}
 
+
 class AvatarUpdateForm(forms.ModelForm):
     class Meta:
         model = Avatar
-        fields = ['imagen_perfil']
-        
+        fields = ['profile_image']
 

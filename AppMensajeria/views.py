@@ -16,6 +16,16 @@ def chat(request):
 
     return render(request, 'chat.html', {'mensajes': mensajes, 'formulario': formulario})
 
+def mensajeria(request):
+    # Supongamos que tienes una lista de mensajes
+    mensajes = [
+        {'autor': 'Usuario1', 'contenido': 'Hola, ¿cómo estás?'},
+        {'autor': 'Usuario2', 'contenido': '¡Hola! Estoy bien, ¿y tú?'},
+        # Agrega más mensajes aquí según tus necesidades
+    ]
+
+    return render(request, 'mensajeria.html', {'mensajes': mensajes})
+
 
 
     

@@ -1,0 +1,17 @@
+{% extends 'Blogfinal/padre.html' %}
+
+{% load static %}
+
+{% block titulo %} ESTA ES LA PAGINA DE MENSAJES{% endblock %}
+
+{% block contenido_que_cambia %}
+    <h1>ESTE ES EL CONTENIDO DE LA PAGINA DE MENSAJERIA!</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ Formulariomensaje.as_p }}
+        <button type="submit">Enviar Mensaje</button>
+    </form>
+    
+    
+{% endblock %}

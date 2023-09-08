@@ -21,9 +21,9 @@
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="{% url "inicio" %}">inicio</a>
-                <a class="btn btn-primary" href="{% url "Perfil" %}">Perfil</a>
-                <a class="btn btn-primary" href="{% url "Mensajeria" %}">Mensajeria</a>
-                <a class="btn btn-primary" href="{% url "Registro" %}">Registro</a>
+                <a class="btn btn-primary" href="{% url "perfil" %}">Perfil</a>
+                <a class="btn btn-primary" href="{% url "mensajeria" %}">Mensajeria</a>
+                <a class="btn btn-primary" href="{% url "registro" %}">Registro</a>
                 {% if not request.user.is_autenthicated %}
                 <a class="btn btn-primary" href="{% url "login" %}">Iniciar Sesion</a>
                 {% endif  %}

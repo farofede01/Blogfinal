@@ -4,7 +4,8 @@ from AppPerfil import views
 
 
 urlpatterns = [
-    path('editarPerfil', views.editarPerfil, name="EditarPerfil"), 
+    path('editarPerfil', views.editarPerfil, name="EditarPerfil"),
+    path("perfil/", perfil, name = "perfil"),
 ]
 
 

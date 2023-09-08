@@ -33,11 +33,15 @@ def editarPerfil(request):
 
 def cargar_avatar(request):
     if request.method == 'POST':
-        profile_form = AvatarUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        profile_form = AvatarUpdateForm(request.POST, request.FILES, instance=request.user.avatar)
 
         if profile_form.is_valid():
             profile_form.save()
             return redirect('inicio')
     else:
-        profile_form = AvatarUpdateForm(instance=request.user.userprofile)
+        profile_form = AvatarUpdateForm(instance=request.user.avatar)
     return render(request, 'Blog/inicio.html', {'profile_form': profile_form})
+
+def perfil (request):
+    perfil_usuario = request.user.userprofile
+    return render(request, 'perfil.html', {'perfil_usuario': perfil_usuario})

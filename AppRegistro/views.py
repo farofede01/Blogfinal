@@ -5,9 +5,9 @@ from django.http import HttpResponse
 from .forms import *
 
 # Create your views here.
-def usuarioForm(request):
+def registro (request):
     if request.method == 'POST':
-        form = usuarioForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
             info = form.cleaned_data
             nombre_usuario = info ["nombreusuario"] 
@@ -17,14 +17,16 @@ def usuarioForm(request):
             contraseña = info ["contraseña"]
             usuario = Usuario(nombre_usuario = nombre_usuario, nombre = nombre, apellidos = apellidos ,email = email, contraseña = contraseña)
             usuario.save()
-            formulario_registro = usuarioForm()
+            formulario_registro = UserCreationForm()
             return render (request, "AppRegistro/registro.html", {"mensaje":"Usuario creado"})
         else:
             return render (request, "AppRegistro/registro.html", {"mensaje": "Datos invalidos"})
     else:   
-        formulario_registro = usuarioForm()
+        formulario_registro = UserCreationForm()
     
-    return render(request, "AppCoder/registro.html", {"formulario": formulario_registro})
+    return render(request, "AppRegistro/registro.html", {"formulario": formulario_registro})
+
+
 
             
 
