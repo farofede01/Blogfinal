@@ -7,3 +7,12 @@ class Avatar(models.Model):
 
     def _str_(self):
         return self.user.username
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # Agrega campos personalizados para el perfil de usuario si es necesario
+    # Por ejemplo: avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)
+    
+    def __str__(self):
+        return self.user.username
+

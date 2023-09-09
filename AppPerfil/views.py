@@ -42,6 +42,8 @@ def cargar_avatar(request):
         profile_form = AvatarUpdateForm(instance=request.user.avatar)
     return render(request, 'Blog/inicio.html', {'profile_form': profile_form})
 
-def perfil (request):
-    perfil_usuario = request.user.userprofile
+
+@login_required
+def perfil(request):
+    perfil_usuario, created = UserProfile.objects.get_or_create(user=request.user)
     return render(request, 'perfil.html', {'perfil_usuario': perfil_usuario})
