@@ -7,5 +7,9 @@ def acercademi (request):
 
 def pages (request):
     return render(request, "pages.html", {"mensaje": "Blog de Tecnologia"})
+   
+
 def inicio (request):
     return render(request, "inicio.html")
+
+
