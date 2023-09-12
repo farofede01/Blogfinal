@@ -29,7 +29,7 @@ def editarPerfil(request):
 
         miFormulario = UserEditForm(initial={'email': usuario.email})
 
-    return render(request, "AppCoder/editarPerfil.html", {"miFormulario": miFormulario, "usuario": usuario})
+    return render(request, "editarperfil.html", {"miFormulario": miFormulario, "usuario": usuario})
 
 def cargar_avatar(request):
     if request.method == 'POST':

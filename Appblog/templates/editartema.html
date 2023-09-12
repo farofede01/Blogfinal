@@ -1,0 +1,20 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block titulo %} Aqui podras editar temas al blog {% endblock %}
+
+{% block contenido_que_cambia %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/crear_tema.css' %}">
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Actualizar">
+  </form>
+  <div class="contenidoCentrado">
+    {% url 'pages' as url %}
+    <button type="button" onclick="window.location.href='{{ url }}'">Volver al blog</button>
+  </div>
+
+{%  endblock  %}

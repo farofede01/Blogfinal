@@ -2,15 +2,14 @@
 
 {% load static %}
 
-{% block titulo %} ESTA ES LA PAGINA DE MENSAJES{% endblock %}
+{% block titulo %} AQUI PUEDES REALIZAR COMENTARIOS {% endblock %}
 
 {% block contenido_que_cambia %}
-    <h1>ESTE ES EL CONTENIDO DE LA PAGINA DE MENSAJERIA!</h1>
 
     <form method="post">
         {% csrf_token %}
-        {{ Formulariomensaje.as_p }}
-        <button type="submit">Enviar Mensaje</button>
+        {{ formulario.as_p }}
+        <button type="submit">Enviar comentario!</button>
     </form>
     
     

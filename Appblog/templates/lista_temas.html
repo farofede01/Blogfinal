@@ -1,0 +1,27 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block titulo %} Aqui podras agregar tema al blog {% endblock %}
+
+{% block contenido_que_cambia %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/crear_tema.css' %}">
+<h1>Lista de Temas</h1>
+  <ul>
+    {% for tema in temas %}
+      <li>
+        <strong>{{ tema.titulo }}</strong><br>
+        {{ tema.descripcion }}<br>
+        <img src="{{ tema.imagen.url }}" alt="{{ tema.titulo }}" width="100">
+        <br>
+        <a href="{% url 'editar_tema' tema.id %}" class="btn btn-primary">Editar</a>
+        <a href="{% url 'eliminar_tema' tema.id %}" class="btn btn-danger">Eliminar</a>
+      </li>
+    {% empty %}
+      <p>No hay temas disponibles.</p>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'CrearTema' %}" class="btn btn-success">Crear Nuevo Tema</a>
+
+
+{%  endblock  %}
