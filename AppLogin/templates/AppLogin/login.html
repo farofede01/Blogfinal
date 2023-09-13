@@ -7,9 +7,12 @@
 {% block contenido_que_cambia %}
 
     <form action="" method="POST">
-        {% csrf_token %}
-            {{ form.as_p }}
-        <button type="submit">Iniciar sesion</button>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Iniciar sesión</button>
+    {% if form.errors %}
+        <p class="error">Error, datos incorrectos.</p>
+    {% endif %}
     </form>
 
 {% endblock %}

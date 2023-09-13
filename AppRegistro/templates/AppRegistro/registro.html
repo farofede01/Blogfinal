@@ -8,7 +8,7 @@
 <h1> USUARIOS</h1>
 <h3> FORMULARIO </h3>
     <form action = "{% url "registro" %}"  method = "POST">{% csrf_token %} 
-        {{ formulario.as_p}}
+        {{ form.as_p}}
         <input type ="submit", value = "GUARDAR USUARIO">
     
     </form>

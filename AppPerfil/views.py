@@ -23,7 +23,7 @@ def editarPerfil(request):
 
             usuario.save()
 
-            return render(request, "inicio.html")
+            return render(request, "Appblog/inicio.html")
 
     else:
 
@@ -40,7 +40,7 @@ def cargar_avatar(request):
             return redirect('inicio')
     else:
         profile_form = AvatarUpdateForm(instance=request.user.avatar)
-    return render(request, 'Blog/inicio.html', {'profile_form': profile_form})
+    return render(request, 'Appblog/inicio.html', {'profile_form': profile_form})
 
 
 @login_required

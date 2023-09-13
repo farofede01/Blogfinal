@@ -28,7 +28,7 @@ def login_request(request):
 
     return render(request, "AppLogin/login.html", {"form": form})
 
-@login_required
+
 def inicio(request):
     formulario_autenticacion = AuthenticationForm()
     context = {'form': formulario_autenticacion}
