@@ -37,4 +37,23 @@
         <p>Los Google Pixel 8 y Pixel 8 Pro serán presentados oficialmente el 4 de octubre, en un evento que se celebrará en Nueva York, Estados Unidos.</p>
     
 
+
+    </div>  
+    <div class="container">
+            {% for tema in temas %}
+           
+                <h1>{{ tema.titulo }}</h1>
+                <p> {{ tema.descripcion }}</p>
+                <img src="{{ tema.imagen.url }}" alt="{{ tema.titulo }}" width="100">
+    
+                <a href="{% url 'editar_tema' tema.id %}" class="btn btn-primary">Editar</a> 
+                <a href="{% url 'eliminar_tema' tema.id %}" class="btn btn-danger">Eliminar</a> 
+             
+                {% empty %}
+                  <p>No hay temas disponibles.</p>
+                {% endfor %}
+              
+              <a href="{% url 'CrearTema' %}" class="btn btn-success">Crear Nuevo Tema</a>
+    </div>
 {% endblock %}
+
