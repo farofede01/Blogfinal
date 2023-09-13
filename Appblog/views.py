@@ -11,22 +11,24 @@ from .forms import crearTemaform
 def acercademi (request):
     return render(request, "acercademi.html")
 
-def pages (request):
-    return render(request, "pages.html", {"mensaje": "Blog de Tecnologia"})
-   
+def pages(request):
+    temas = Tema.objects.all()
+    return render(request, "pages.html", {"mensaje": "Blog de Tecnologia", 'temas': temas})
 
 def inicio (request):
     return render(request, "inicio.html")
 
+
+
 @login_required
 def crear_tema(request):
     if request.method == 'POST':
-        form = crearTemaform(request.POST)
+        form = crearTemaform(request.POST, request.FILES)
         if form.is_valid():
             tema = form.save(commit=False)
             tema.creador = request.user
             tema.save()
-            return HttpResponseRedirect('/pages')
+            return redirect('pages')
     else:
         form = crearTemaform()
     return render(request, 'crear_tema.html', {'form': form})
@@ -44,7 +46,7 @@ def editar_tema(request, tema_id):
     else:
         form = crearTemaform(instance=tema)
 
-    return render(request, 'editar_tema.html', {'form': form, 'tema': tema})
+    return render(request, 'editartema.html', {'form': form, 'tema': tema})
 
 @login_required
 def eliminar_tema(request, tema_id):
@@ -53,7 +55,7 @@ def eliminar_tema(request, tema_id):
         tema.delete()
         return redirect('lista_temas')
 
-    return render(request, 'eliminar_tema.html', {'tema': tema})
+    return render(request, 'eliminartema.html', {'tema': tema})
 
 def lista_temas(request):
     temas = Tema.objects.all()

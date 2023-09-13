@@ -16,14 +16,11 @@ def editarPerfil(request):
             informacion = miFormulario.cleaned_data
 
             usuario.email = informacion['email']
-            usuario.password1 = informacion['password1']
-            usuario.password2 = informacion['password2']
-            usuario.last_name = informacion['last_name']
-            usuario.first_name = informacion['first_name']
-
+            # Usamos set_password para establecer la nueva contraseña
+            usuario.set_password(informacion['password1'])
             usuario.save()
 
-            return render(request, "Appblog/inicio.html")
+            return render(request, "inicio.html")
 
     else:
 
@@ -31,19 +28,28 @@ def editarPerfil(request):
 
     return render(request, "editarperfil.html", {"miFormulario": miFormulario, "usuario": usuario})
 
-def cargar_avatar(request):
-    if request.method == 'POST':
-        profile_form = AvatarUpdateForm(request.POST, request.FILES, instance=request.user.avatar)
-
-        if profile_form.is_valid():
-            profile_form.save()
-            return redirect('inicio')
-    else:
-        profile_form = AvatarUpdateForm(instance=request.user.avatar)
-    return render(request, 'Appblog/inicio.html', {'profile_form': profile_form})
-
-
 @login_required
 def perfil(request):
-    perfil_usuario, created = UserProfile.objects.get_or_create(user=request.user)
-    return render(request, 'perfil.html', {'perfil_usuario': perfil_usuario})
+    perfil_usuario, created = UserProfile.objects.get_or_create(
+        user=request.user)
+    return render(request, 'perfil.html', {'perfil_usuario': perfil_usuario,  "profile_form": AvatarUpdateForm()})
+
+
+def cargar_avatar(request):
+    if request.method == 'POST':
+        profile_form = AvatarUpdateForm(
+            request.POST, request.FILES)
+
+        if profile_form.is_valid():
+            avatar_anterior = Avatar.objects.filter(user=request.user)
+            if (len(avatar_anterior) > 0):
+                avatar_anterior.delete()
+            avatar_nuevo = Avatar(
+                user=request.user, profile_image=profile_form.cleaned_data["profile_image"])
+            avatar_nuevo.save()
+            # profile_form.save()
+            return redirect('inicio')
+    else:
+        profile_form = AvatarUpdateForm()
+    return render(request, 'Appblog/inicio.html', {'profile_form': profile_form})
+

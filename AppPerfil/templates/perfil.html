@@ -7,23 +7,21 @@
 {% block contenidoQueCambia %}
 
     <h1>Perfil de {{ perfil_usuario.user.username }}</h1>
-
-    <img src="{{ perfil_usuario.avatar.profile_image.url }}" alt="Avatar" width="150">
-    
+    {% if user.avatar.profile_image %}
+        <img src="{{ user.avatar.profile_image.url }}" alt="Avatar" width="150">
+    {% endif %}
     <ul>
-        <li><strong>Nombre:</strong> {{ perfil_usuario.user.first_name }} {{ perfil_usuario.user.last_name }}</li>
+        <li><strong>Nombre:</strong> {{ user.username }}</li>
         <li><strong>Email:</strong> {{ perfil_usuario.user.email }}</li>
         
     </ul>
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" action = "{% url "cargar_avatar" %}" enctype="multipart/form-data">
         {% csrf_token %}
         {{ profile_form.as_p }}
         <button type="submit">Cargar Avatar</button>
     </form>
 
-    <a href="{% url 'editarPerfil' %}">Editar perfil</a>
-</body>
-</html>
+    <a href="{% url 'EditarPerfil' %}">Editar perfil</a>
 
 
 

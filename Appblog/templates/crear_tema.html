@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/crear_tema.css' %}">
 
 <h1>Crear nuevo tema</h1>
-<form method="post">
+<form method="post" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form.as_p }}
   <input type="submit" value="Crear">
