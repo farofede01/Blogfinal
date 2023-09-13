@@ -22,3 +22,5 @@ Seccion Perfil :
 
 # Link del video de prueba:
 https://youtu.be/Kzg4aM1Ebb8
+
+# Dentro del proyecto se encuentra el excel con los casos de prueba
