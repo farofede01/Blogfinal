@@ -19,5 +19,6 @@ Seccion comentarios:
 
 Seccion Perfil :
 *Los usuarios registrados pueden ir a su perfil mediante el boton "Perfil" donde se podran ver su perfil con toda su informacion , luego un boton para poder editar su informacion del perfil llamado "Editar Perfil" y luego ademas de eso poder modificar el avatar predeterminado con el boton "cambiar avatar".
-#Link del video de prueba:
+
+# Link del video de prueba:
 https://youtu.be/Kzg4aM1Ebb8
